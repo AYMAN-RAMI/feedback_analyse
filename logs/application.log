@@ -1,0 +1,233 @@
+2025-03-25T15:07:54.180Z  WARN 8624 --- [HikariPool-3 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=1d32m26s732ms341µs700ns).
+2025-03-25T16:43:33.574Z  WARN 8624 --- [HikariPool-3 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=1h10m8s528ms146µs500ns).
+2025-03-25T16:47:22.651Z  INFO 8624 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25T16:47:22.658Z  INFO 8624 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2025-03-25T16:47:22.661Z  INFO 8624 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2025-03-25T16:47:37.095Z  INFO 12172 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : Starting AnalyseFeedbackApplication using Java 23 with PID 12172 (C:\Users\MADARA\Desktop\Stage PFE\analyse-feedback-project\analyse-feedback-project\target\classes started by MADARA in C:\Users\MADARA\Desktop\Stage PFE\analyse-feedback-project)
+2025-03-25T16:47:37.095Z DEBUG 12172 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-25T16:47:37.102Z  INFO 12172 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-03-25T16:47:37.185Z  INFO 12172 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-25T16:47:37.185Z  INFO 12172 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-25T16:47:39.258Z  INFO 12172 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-25T16:47:39.356Z  INFO 12172 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 7 JPA repository interfaces.
+2025-03-25T16:47:40.380Z  INFO 12172 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8088 (http)
+2025-03-25T16:47:40.396Z  INFO 12172 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-25T16:47:40.396Z  INFO 12172 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-25T16:47:40.493Z  INFO 12172 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-03-25T16:47:40.493Z  INFO 12172 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3307 ms
+2025-03-25T16:47:40.751Z  INFO 12172 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-25T16:47:40.854Z  INFO 12172 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-03-25T16:47:40.910Z  INFO 12172 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-25T16:47:41.317Z  INFO 12172 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-25T16:47:41.345Z  INFO 12172 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-25T16:47:41.561Z  INFO 12172 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c5f360c
+2025-03-25T16:47:41.563Z  INFO 12172 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-25T16:47:41.630Z  WARN 12172 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-25T16:47:41.630Z  WARN 12172 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-25T16:47:43.407Z  INFO 12172 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-25T16:47:43.551Z  INFO 12172 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25T16:47:44.343Z  WARN 12172 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-25T16:47:44.353Z  WARN 12172 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 0d9adfd0-85c2-4f95-beb3-aa38fe850dc7
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-25T16:47:44.747Z  INFO 12172 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@61151357, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6b74291a, org.springframework.security.web.context.SecurityContextHolderFilter@5823eb10, org.springframework.security.web.header.HeaderWriterFilter@46e346ec, org.springframework.security.web.csrf.CsrfFilter@586fc204, org.springframework.security.web.authentication.logout.LogoutFilter@79157131, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@627126ed, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4bc57132, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3bbf53b2, org.springframework.security.web.access.ExceptionTranslationFilter@13b99e98, org.springframework.security.web.access.intercept.AuthorizationFilter@38864db2]
+2025-03-25T16:47:45.032Z  INFO 12172 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-25T16:47:45.093Z  INFO 12172 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8088 (http) with context path '/api'
+2025-03-25T16:47:45.103Z  INFO 12172 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : Started AnalyseFeedbackApplication in 8.516 seconds (process running for 18.217)
+2025-03-25T16:47:53.091Z  INFO 12172 --- [http-nio-8088-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-25T16:47:53.091Z  INFO 12172 --- [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-25T16:47:53.091Z  INFO 12172 --- [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-03-25T16:51:30.271Z  INFO 12172 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25T16:51:30.271Z  INFO 12172 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-25T16:51:30.283Z  INFO 12172 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-25T16:51:36.229Z  INFO 22876 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : Starting AnalyseFeedbackApplication using Java 23 with PID 22876 (C:\Users\MADARA\Desktop\Stage PFE\analyse-feedback-project\analyse-feedback-project\target\classes started by MADARA in C:\Users\MADARA\Desktop\Stage PFE\analyse-feedback-project)
+2025-03-25T16:51:36.229Z DEBUG 22876 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-25T16:51:36.235Z  INFO 22876 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-03-25T16:51:36.314Z  INFO 22876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-25T16:51:36.314Z  INFO 22876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-25T16:51:37.390Z  INFO 22876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-25T16:51:37.472Z  INFO 22876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 7 JPA repository interfaces.
+2025-03-25T16:51:38.103Z  INFO 22876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8088 (http)
+2025-03-25T16:51:38.117Z  INFO 22876 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-25T16:51:38.117Z  INFO 22876 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-25T16:51:38.180Z  INFO 22876 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-03-25T16:51:38.180Z  INFO 22876 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1865 ms
+2025-03-25T16:51:38.416Z  INFO 22876 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-25T16:51:38.496Z  INFO 22876 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-03-25T16:51:38.526Z  INFO 22876 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-25T16:51:38.796Z  INFO 22876 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-25T16:51:38.850Z  INFO 22876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-25T16:51:39.060Z  INFO 22876 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@681b4c80
+2025-03-25T16:51:39.063Z  INFO 22876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-25T16:51:39.133Z  WARN 22876 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-25T16:51:39.133Z  WARN 22876 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-25T16:51:40.428Z  INFO 22876 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-25T16:51:40.551Z  INFO 22876 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25T16:51:41.373Z  WARN 22876 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-25T16:51:41.396Z  WARN 22876 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 6cabfa21-1c02-42e0-8c25-4c1fdae523aa
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-25T16:51:41.735Z  INFO 22876 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b133fe7, org.springframework.security.web.context.SecurityContextHolderFilter@29298c0f, org.springframework.security.web.header.HeaderWriterFilter@116dbfc2, org.springframework.web.filter.CorsFilter@1b331678, org.springframework.security.web.authentication.logout.LogoutFilter@41fc768d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@88ef7d4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@49c84a46, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d8b6983, org.springframework.security.web.access.ExceptionTranslationFilter@679fbccd, org.springframework.security.web.access.intercept.AuthorizationFilter@49313a3f]
+2025-03-25T16:51:42.087Z  INFO 22876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-25T16:51:42.137Z  INFO 22876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8088 (http) with context path '/api'
+2025-03-25T16:51:42.148Z  INFO 22876 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : Started AnalyseFeedbackApplication in 6.452 seconds (process running for 7.364)
+2025-03-25T16:52:00.686Z  INFO 22876 --- [http-nio-8088-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-25T16:52:00.686Z  INFO 22876 --- [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-25T16:52:00.686Z  INFO 22876 --- [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-03-25T17:00:50.111Z  WARN 22876 --- [http-nio-8088-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries]
+2025-03-25T17:00:51.572Z  WARN 22876 --- [http-nio-8088-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries]
+2025-03-25T17:10:54.795Z  INFO 22876 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-03-25T17:10:54.819Z  INFO 22876 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25T17:10:54.823Z  INFO 22876 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-25T17:10:54.828Z  INFO 22876 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-25T17:10:54.935Z  INFO 22876 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : Starting AnalyseFeedbackApplication using Java 23 with PID 22876 (C:\Users\MADARA\Desktop\Stage PFE\analyse-feedback-project\analyse-feedback-project\target\classes started by MADARA in C:\Users\MADARA\Desktop\Stage PFE\analyse-feedback-project)
+2025-03-25T17:10:54.935Z DEBUG 22876 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-25T17:10:54.935Z  INFO 22876 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-03-25T17:10:55.304Z  INFO 22876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-25T17:10:55.335Z  INFO 22876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 7 JPA repository interfaces.
+2025-03-25T17:10:55.623Z  INFO 22876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8088 (http)
+2025-03-25T17:10:55.630Z  INFO 22876 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-25T17:10:55.630Z  INFO 22876 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-25T17:10:55.685Z  INFO 22876 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-03-25T17:10:55.685Z  INFO 22876 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 741 ms
+2025-03-25T17:10:55.797Z  INFO 22876 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-25T17:10:55.806Z  INFO 22876 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-25T17:10:55.815Z  INFO 22876 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-25T17:10:55.815Z  INFO 22876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-03-25T17:10:55.828Z  INFO 22876 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@58a7f955
+2025-03-25T17:10:55.828Z  INFO 22876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-03-25T17:10:55.828Z  WARN 22876 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-25T17:10:55.828Z  WARN 22876 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-25T17:10:56.220Z  INFO 22876 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-25T17:10:56.335Z  INFO 22876 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25T17:10:56.913Z  WARN 22876 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-25T17:10:57.248Z  WARN 22876 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 468720d2-b009-4f6b-98c0-5dd47c80b2f2
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-25T17:10:57.307Z  INFO 22876 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4ccfd1d5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12eb8289, org.springframework.security.web.context.SecurityContextHolderFilter@3cf59b2c, org.springframework.security.web.header.HeaderWriterFilter@2a56f514, org.springframework.web.filter.CorsFilter@2415f51, org.springframework.security.web.csrf.CsrfFilter@4cc0e099, org.springframework.security.web.authentication.logout.LogoutFilter@42cbf2a8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@f5f9b7c, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@509073ba, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@2e1af3c9, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@506f830b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69e603dc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7485a5a1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1c69cea6, org.springframework.security.web.access.ExceptionTranslationFilter@2e4f7127, org.springframework.security.web.access.intercept.AuthorizationFilter@121c6525]
+2025-03-25T17:10:57.340Z  INFO 22876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-25T17:10:57.366Z  INFO 22876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8088 (http) with context path '/api'
+2025-03-25T17:10:57.378Z  INFO 22876 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : Started AnalyseFeedbackApplication in 2.475 seconds (process running for 1162.591)
+2025-03-25T17:10:57.384Z  INFO 22876 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration matched:
+      - AllNestedConditions 2 matched 0 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) did not find any beans; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   SpringBootWebSecurityConfiguration.WebSecurityEnablerConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+      - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2025-03-25T17:10:58.787Z  INFO 22876 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-03-25T17:10:58.807Z  INFO 22876 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25T17:10:58.808Z  INFO 22876 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-03-25T17:10:58.815Z  INFO 22876 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-03-25T17:10:58.983Z  INFO 22876 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : Starting AnalyseFeedbackApplication using Java 23 with PID 22876 (C:\Users\MADARA\Desktop\Stage PFE\analyse-feedback-project\analyse-feedback-project\target\classes started by MADARA in C:\Users\MADARA\Desktop\Stage PFE\analyse-feedback-project)
+2025-03-25T17:10:58.983Z DEBUG 22876 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-03-25T17:10:58.983Z  INFO 22876 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-03-25T17:10:59.513Z  INFO 22876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-25T17:10:59.569Z  INFO 22876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 7 JPA repository interfaces.
+2025-03-25T17:10:59.896Z  INFO 22876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8088 (http)
+2025-03-25T17:10:59.900Z  INFO 22876 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-25T17:10:59.900Z  INFO 22876 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-03-25T17:10:59.944Z  INFO 22876 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-03-25T17:10:59.944Z  INFO 22876 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 958 ms
+2025-03-25T17:11:00.035Z  INFO 22876 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-25T17:11:00.043Z  INFO 22876 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-25T17:11:00.053Z  INFO 22876 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-25T17:11:00.057Z  INFO 22876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2025-03-25T17:11:00.067Z  INFO 22876 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@226e8689
+2025-03-25T17:11:00.067Z  INFO 22876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2025-03-25T17:11:00.067Z  WARN 22876 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-25T17:11:00.067Z  WARN 22876 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-25T17:11:00.503Z  INFO 22876 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-25T17:11:00.674Z  INFO 22876 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-25T17:11:01.407Z  WARN 22876 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-25T17:11:01.433Z  WARN 22876 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 91d0c388-321a-4acc-8f37-ae426ccf2a71
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-25T17:11:01.680Z  INFO 22876 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3cae8966, org.springframework.security.web.context.SecurityContextHolderFilter@23e5023a, org.springframework.security.web.header.HeaderWriterFilter@6427185e, org.springframework.web.filter.CorsFilter@2fc562c8, org.springframework.security.web.authentication.logout.LogoutFilter@58996c2f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7570af1d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f5f4ce6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e464d4e, org.springframework.security.web.access.ExceptionTranslationFilter@4856506d, org.springframework.security.web.access.intercept.AuthorizationFilter@5d2c79f0]
+2025-03-25T17:11:01.887Z  INFO 22876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-25T17:11:01.923Z  INFO 22876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8088 (http) with context path '/api'
+2025-03-25T17:11:01.930Z  INFO 22876 --- [restartedMain] c.f.analyse.AnalyseFeedbackApplication   : Started AnalyseFeedbackApplication in 3.002 seconds (process running for 1167.144)
+2025-03-25T17:11:01.933Z  INFO 22876 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration:
+      Did not match:
+         - AllNestedConditions 1 matched 1 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) found beans of type 'org.springframework.security.web.SecurityFilterChain' securityFilterChain; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   SpringBootWebSecurityConfiguration.WebSecurityEnablerConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) found beans named springSecurityFilterChain (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
