@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/sprints")
+@RequestMapping("/sprints")
 @RequiredArgsConstructor
 public class SprintController {
     private final SprintService sprintService;

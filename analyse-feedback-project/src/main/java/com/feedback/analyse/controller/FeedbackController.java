@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/feedbacks")
+@RequestMapping("/feedbacks")
 @RequiredArgsConstructor
 public class FeedbackController {
     private final FeedbackService feedbackService;

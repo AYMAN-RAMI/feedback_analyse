@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/analyses")
+@RequestMapping("/analyses")
 @RequiredArgsConstructor
 public class AnalyseIAController {
     private final AnalyseIAService analyseIAService;

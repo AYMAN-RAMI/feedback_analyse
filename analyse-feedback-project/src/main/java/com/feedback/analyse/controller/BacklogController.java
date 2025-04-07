@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/backlogs")
+@RequestMapping("/backlogs")
 @RequiredArgsConstructor
 public class BacklogController {
     private final BacklogService backlogService;
