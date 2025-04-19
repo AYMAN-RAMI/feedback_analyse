@@ -17,7 +17,6 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .anyRequest().permitAll()                        // Autorise toutes les requêtes
                 )
-
                 .sessionManagement(session -> session.disable());     // Pas de gestion de session
 
         return http.build();
