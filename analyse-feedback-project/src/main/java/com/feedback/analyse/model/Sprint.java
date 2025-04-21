@@ -16,13 +16,20 @@ public class Sprint {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(nullable = false)
     private LocalDateTime dateDebut;
-    
+
     @Column
     private LocalDateTime dateFin;
-    
+
+    @Column(nullable = false)
+    private String statut; // 🆕 ajouté ici !
+
     @OneToMany(mappedBy = "sprint")
     private List<Ticket> tickets;
+
+    @ManyToOne
+    @JoinColumn(name = "ticket_id")
+    private Ticket ticket;
 }

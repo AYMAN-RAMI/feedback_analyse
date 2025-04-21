@@ -38,4 +38,8 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name = "assignee_id")
     private Utilisateur assignee;
+
+
+
+
 }

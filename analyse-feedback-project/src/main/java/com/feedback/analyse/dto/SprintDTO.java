@@ -13,5 +13,7 @@ public class SprintDTO {
     private Long id;
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
+    private String statut;
+    private Long ticketId;           // ✅ pour un seul ticket lié
     private List<Long> ticketIds;
 }
