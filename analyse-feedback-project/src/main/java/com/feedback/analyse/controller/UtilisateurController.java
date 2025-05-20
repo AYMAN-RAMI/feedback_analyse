@@ -1,5 +1,7 @@
 package com.feedback.analyse.controller;
 
+import com.feedback.analyse.mapper.UtilisateurMapper;
+
 import com.feedback.analyse.dto.UtilisateurDTO;
 import com.feedback.analyse.model.Utilisateur;
 import com.feedback.analyse.service.UtilisateurService;
@@ -73,5 +75,12 @@ public class UtilisateurController {
         // Assurez-vous que le mot de passe est correctement géré (haché, etc.)
         utilisateur.setMotDePasse(dto.getMotDePasse()); // À remplacer par une logique de hachage si nécessaire
         return utilisateur;
+    }
+    @GetMapping("/clients")
+    public List<UtilisateurDTO> getAllClients() {
+        List<Utilisateur> clients = utilisateurService.getUtilisateursByRole("CLIENT");
+        return clients.stream()
+                .map(UtilisateurMapper::toDto)
+                .collect(Collectors.toList());
     }
 }

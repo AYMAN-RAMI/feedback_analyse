@@ -9,7 +9,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BacklogDTO {
+
     private Long id;
+    private String code;
+    private String titre;
+    private String description;
+    private Integer points;
+    private String priorite;
     private String statut;
+    private String assigneA;
+
     private List<Long> ticketIds;
 }

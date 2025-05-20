@@ -1,28 +1,55 @@
 package com.feedback.analyse.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "notifications")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Notification {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @Column(nullable = false)
+
     private String contenu;
-    
-    @Column(nullable = false)
-    private LocalDateTime dateEnvoi;
-    
+
+    private LocalDate dateEnvoi;
+
     @ManyToOne
-    @JoinColumn(name = "destinataire_id", nullable = false)
+    @JoinColumn(name = "destinataire_id")
     private Utilisateur destinataire;
+
+    // --- Getters & Setters ---
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getContenu() {
+        return contenu;
+    }
+
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
+    }
+
+    public LocalDate getDateEnvoi() {
+        return dateEnvoi;
+    }
+
+    public void setDateEnvoi(LocalDate dateEnvoi) {
+        this.dateEnvoi = dateEnvoi;
+    }
+
+    public Utilisateur getDestinataire() {
+        return destinataire;
+    }
+
+    public void setDestinataire(Utilisateur destinataire) {
+        this.destinataire = destinataire;
+    }
 }

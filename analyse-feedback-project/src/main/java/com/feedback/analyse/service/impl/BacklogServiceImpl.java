@@ -6,11 +6,13 @@ import com.feedback.analyse.repository.BacklogRepository;
 import com.feedback.analyse.service.BacklogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class BacklogServiceImpl implements BacklogService {
+
     private final BacklogRepository backlogRepository;
 
     @Override
@@ -32,9 +34,15 @@ public class BacklogServiceImpl implements BacklogService {
     @Override
     public Backlog updateBacklog(Long id, Backlog backlogDetails) {
         Backlog backlog = getBacklogById(id);
-        
+
+        backlog.setCode(backlogDetails.getCode());
+        backlog.setTitre(backlogDetails.getTitre());
+        backlog.setDescription(backlogDetails.getDescription());
+        backlog.setPoints(backlogDetails.getPoints());
+        backlog.setPriorite(backlogDetails.getPriorite());
+        backlog.setAssigneA(backlogDetails.getAssigneA());
         backlog.setStatut(backlogDetails.getStatut());
-        
+
         return backlogRepository.save(backlog);
     }
 

@@ -11,4 +11,5 @@ public interface UtilisateurService {
     Utilisateur updateUtilisateur(Long id, Utilisateur utilisateur);
     void deleteUtilisateur(Long id);
     boolean existsByEmail(String email);
+    List<Utilisateur> getUtilisateursByRole(String role);
 }

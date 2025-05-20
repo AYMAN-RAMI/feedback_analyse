@@ -70,4 +70,9 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     public boolean existsByEmail(String email) {
         return utilisateurRepository.existsByEmail(email);
     }
+
+    @Override
+    public List<Utilisateur> getUtilisateursByRole(String role) {
+        return utilisateurRepository.findByRole(role);
+    }
 }

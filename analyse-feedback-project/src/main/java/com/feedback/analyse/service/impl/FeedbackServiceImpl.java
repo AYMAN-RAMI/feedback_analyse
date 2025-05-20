@@ -1,5 +1,6 @@
 package com.feedback.analyse.service.impl;
 
+import com.feedback.analyse.dto.FeedbackDTO;
 import com.feedback.analyse.exception.ResourceNotFoundException;
 import com.feedback.analyse.model.Client;
 import com.feedback.analyse.model.Feedback;
@@ -8,12 +9,14 @@ import com.feedback.analyse.repository.FeedbackRepository;
 import com.feedback.analyse.service.FeedbackService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class FeedbackServiceImpl implements FeedbackService {
+
     private final FeedbackRepository feedbackRepository;
     private final ClientRepository clientRepository;
 
@@ -30,7 +33,7 @@ public class FeedbackServiceImpl implements FeedbackService {
 
     @Override
     public List<Feedback> getFeedbacksByClientId(Long clientId) {
-        return feedbackRepository.findByClientId(clientId);
+        return feedbackRepository.findByClientIdWithClient(clientId);
     }
 
     @Override
@@ -48,25 +51,14 @@ public class FeedbackServiceImpl implements FeedbackService {
         return feedbackRepository.findByDateSoumissionBetween(debut, fin);
     }
 
-    @Override
-    public Feedback createFeedback(Feedback feedback, Long clientId) {
-        Client client = clientRepository.findById(clientId)
-                .orElseThrow(() -> new ResourceNotFoundException("Client non trouvé avec l'id : " + clientId));
-        
-        feedback.setClient(client);
-        feedback.setDateSoumission(LocalDateTime.now());
-        
-        return feedbackRepository.save(feedback);
-    }
+
 
     @Override
     public Feedback updateFeedback(Long id, Feedback feedbackDetails) {
         Feedback feedback = getFeedbackById(id);
-        
         feedback.setContenu(feedbackDetails.getContenu());
         feedback.setCategorie(feedbackDetails.getCategorie());
         feedback.setSentiment(feedbackDetails.getSentiment());
-        
         return feedbackRepository.save(feedback);
     }
 
@@ -74,5 +66,20 @@ public class FeedbackServiceImpl implements FeedbackService {
     public void deleteFeedback(Long id) {
         Feedback feedback = getFeedbackById(id);
         feedbackRepository.delete(feedback);
+    }
+
+    @Override
+    public Feedback createFeedbackFromDTO(FeedbackDTO feedbackDTO, Long clientId) {
+        Client client = clientRepository.findById(clientId)
+                .orElseThrow(() -> new ResourceNotFoundException("Client non trouvé avec l'id : " + clientId));
+
+        Feedback feedback = new Feedback();
+        feedback.setContenu(feedbackDTO.getContenu());
+        feedback.setCategorie(feedbackDTO.getCategorie());
+        feedback.setSentiment(feedbackDTO.getSentiment());
+        feedback.setClient(client);
+        feedback.setDateSoumission(LocalDateTime.now());
+
+        return feedbackRepository.save(feedback);
     }
 }

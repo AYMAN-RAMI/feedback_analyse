@@ -19,7 +19,7 @@ public class AuthController {
     private UtilisateurRepository utilisateurRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder; // Injecté depuis PasswordConfig
+    private PasswordEncoder passwordEncoder;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
@@ -30,8 +30,9 @@ public class AuthController {
                 passwordEncoder.matches(loginRequest.getPassword(), utilisateur.getMotDePasse())) {
 
             Map<String, Object> response = new HashMap<>();
-            response.put("token", UUID.randomUUID().toString()); // Token temporaire
+            response.put("token", UUID.randomUUID().toString());
             response.put("role", utilisateur.getRole());
+            response.put("utilisateur", utilisateur); // pour envoyer id, nom, email
             return ResponseEntity.ok(response);
         }
 
@@ -43,18 +44,9 @@ public class AuthController {
         private String email;
         private String password;
 
-        // Getters et Setters
-        public String getEmail() {
-            return email;
-        }
-        public void setEmail(String email) {
-            this.email = email;
-        }
-        public String getPassword() {
-            return password;
-        }
-        public void setPassword(String password) {
-            this.password = password;
-        }
+        public String getEmail() { return email; }
+        public void setEmail(String email) { this.email = email; }
+        public String getPassword() { return password; }
+        public void setPassword(String password) { this.password = password; }
     }
 }
