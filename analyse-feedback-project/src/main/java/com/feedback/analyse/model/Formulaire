@@ -1,0 +1,54 @@
+package com.feedback.analyse.model;
+
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "formulaire")
+public class Formulaire {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String titre;
+
+    @Column(nullable = false)
+    private String emailClient;
+
+    @OneToMany(mappedBy = "formulaire", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Champ> champs = new ArrayList<>();
+
+
+
+    // Méthode pour gérer correctement la relation bidirectionnelle
+    public void addChamp(Champ champ) {
+        champs.add(champ);
+        champ.setFormulaire(this);
+    }
+
+  
+
+
+    public Formulaire() {}
+
+    // Getters et setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getTitre() { return titre; }
+    public void setTitre(String titre) { this.titre = titre; }
+    public String getEmailClient() { return emailClient; }
+    public void setEmailClient(String emailClient) { this.emailClient = emailClient; }
+    public List<Champ> getChamps() { return champs; }
+    public void setChamps(List<Champ> champs) { this.champs = champs; }
+    public List<Reponse> getReponses() { return reponses; }
+    public void setReponses(List<Reponse> reponses) { this.reponses = reponses; }
+
+
+
+
+
+
+
+}
