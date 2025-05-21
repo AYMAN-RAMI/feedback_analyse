@@ -1,0 +1,56 @@
+package com.feedback.analyse.controller;
+
+import com.feedback.analyse.dto.ClientReponsesDto;
+import com.feedback.analyse.dto.FormulaireDto;
+import com.feedback.analyse.service.FormulaireService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/formulaires")
+@Tag(name = "API Formulaires", description = "Gestion des formulaires personnalisés")
+public class FormulaireController {
+    private final FormulaireService formulaireService;
+
+    public FormulaireController(FormulaireService formulaireService) {
+        this.formulaireService = formulaireService;
+    }
+
+    @PostMapping
+    @Operation(summary = "Créer un nouveau formulaire")
+    public ResponseEntity<FormulaireDto> createFormulaire(@RequestBody FormulaireDto formulaireDto) {
+        return ResponseEntity.ok(formulaireService.createFormulaire(formulaireDto));
+    }
+
+    @GetMapping("/{id}")
+  
+    public ResponseEntity<FormulaireDto> getFormulaire(@PathVariable Long id) {
+        return ResponseEntity.ok(formulaireService.getFormulaireById());
+    }
+
+    @GetMapping
+    @Operation(summary = "Lister tous les formulaires")
+    public ResponseEntity<List<FormulaireDto>> getAllFormulaires() {
+        return ResponseEntity.ok(formulaireService.getAllFormulaires());
+    }
+
+    @PutMapping("/{id}")
+    @Operation(summary = "Mettre à jour un formulaire existant")
+    public ResponseEntity<FormulaireDto> updateFormulaire(
+            @PathVariable Long id, @RequestBody FormulaireDto formulaireDto) {
+        return ResponseEntity.ok(formulaireService.updateFormulaire(id, formulaireDto));
+    }
+
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Supprimer un formulaire par son ID")
+    public ResponseEntity<Void> deleteFormulaire(@PathVariable Long id) {
+        formulaireService.deleteFormulaire(id);
+        return ResponseEntity.noContent().build();
+    }
+
+
+}
