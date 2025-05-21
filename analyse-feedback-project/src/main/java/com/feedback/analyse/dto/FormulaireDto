@@ -1,0 +1,26 @@
+package com.feedback.analyse.dto;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
+import java.util.List;
+
+public class FormulaireDto {
+    private Long id;
+   
+    private String titre;
+    @Email(message = "Email invalide")
+    @NotBlank(message = "L'email est obligatoire")
+    private String emailClient;
+    
+
+    // Getters et setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getTitre() { return titre; }
+    public void setTitre(String titre) { this.titre = titre; }
+    public String getEmailClient() { return emailClient; }
+    public void setEmailClient(String emailClient) { this.emailClient = emailClient; }
+    
+}
