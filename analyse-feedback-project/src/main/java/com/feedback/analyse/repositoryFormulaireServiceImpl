@@ -1,0 +1,218 @@
+package com.feedback.analyse.service.impl;
+
+import com.feedback.analyse.dto.*;
+import com.feedback.analyse.exception.ApiException;
+import com.feedback.analyse.model.*;
+import com.feedback.analyse.repository.*;
+import com.feedback.analyse.service.FormulaireService;
+import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.mail.MailException;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Slf4j
+@Service
+@Transactional
+public class FormulaireServiceImpl implements FormulaireService {
+
+    private final FormulaireRepository formulaireRepository;
+    private final ChampRepository champRepository;
+    private final ReponseRepository reponseRepository;
+    private final ModelMapper modelMapper;
+    private final EmailService emailService;
+
+    @Value("${app.base-url}")
+    private String baseUrl;
+
+
+    public FormulaireServiceImpl(FormulaireRepository formulaireRepository,
+                                 ChampRepository champRepository,
+                                 ReponseRepository reponseRepository,
+                                 ModelMapper modelMapper,
+                                 EmailService emailService) {
+        this.formulaireRepository = formulaireRepository;
+        this.champRepository = champRepository;
+        this.reponseRepository = reponseRepository;
+        this.modelMapper = modelMapper;
+        this.emailService = emailService;
+    }
+
+    @Override
+    public FormulaireDto createFormulaire(FormulaireDto formulaireDto) {
+        try {
+            validateFormulaireData(formulaireDto);
+
+            Formulaire formulaire = new Formulaire();
+            formulaire.setTitre(formulaireDto.getTitre().trim());
+            formulaire.setEmailClient(formulaireDto.getEmailClient().trim());
+
+            // Sauvegarder d'abord le formulaire sans les champs
+            Formulaire savedFormulaire = formulaireRepository.save(formulaire);
+
+            if (formulaireDto.getChamps() != null) {
+                for (ChampDto champDto : formulaireDto.getChamps()) {
+                    validateChampData(champDto);
+
+                    Champ champ = modelMapper.map(champDto, Champ.class);
+                    champ.setFormulaire(savedFormulaire);
+                    champ = champRepository.save(champ); // Sauvegarder le champ
+                    savedFormulaire.addChamp(champ);
+                }
+            }
+
+            // Pas besoin de resauvegarder le formulaire ici car les changements sont gérés par le contexte de persistance
+            sendFormulaireEmail(savedFormulaire);
+            return convertToDto(savedFormulaire);
+
+        } catch (DataIntegrityViolationException e) {
+            log.error("Erreur d'intégrité des données - Formulaire: {}", formulaireDto, e);
+            throw new ApiException("Erreur de duplication ou contrainte violée");
+        } catch (MailException e) {
+            log.warn("Échec d'envoi d'email pour le formulaire {}", formulaireDto.getTitre(), e);
+            return convertToDto(formulaireRepository.findById(formulaireDto.getId()).orElseThrow());
+        } catch (Exception e) {
+            log.error("Erreur critique lors de la création du formulaire", e);
+            throw new ApiException("Erreur système temporaire");
+        }
+    }
+
+    // Les autres méthodes restent inchangées...
+    private void validateFormulaireData(FormulaireDto dto) {
+        if (dto.getTitre() == null || dto.getTitre().trim().isEmpty()) {
+            throw new ApiException("Le titre est obligatoire");
+        }
+
+        if (dto.getEmailClient() == null || !dto.getEmailClient().matches("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            throw new ApiException("Format email invalide");
+        }
+    }
+
+
+    
+
+    private void sendFormulaireEmail(Formulaire formulaire) {
+        try {
+            String subject = "Formulaire à remplir: " + formulaire.getTitre();
+            String url = baseUrl + "/formulaire-public/" + formulaire.getId();
+            String body = String.format(
+                    "Bonjour,\n\nVeuillez remplir le formulaire '%s':\n%s\n\nCordialement,\nL'équipe",
+                    formulaire.getTitre(), url
+            );
+
+            emailService.sendFormulaireEmail(formulaire.getEmailClient(), subject, body);
+        } catch (Exception e) {
+            log.error("Échec d'envoi d'email pour le formulaire {}", formulaire.getId(), e);
+            // Ne pas propager l'erreur pour ne pas bloquer le processus
+        }
+    }
+
+    @Override
+    public FormulaireDto getFormulaireById(Long id) {
+        try {
+            Formulaire formulaire = formulaireRepository.findById(id)
+                    .orElseThrow(() -> new ApiException("Formulaire introuvable"));
+
+            return convertToDto(formulaire);
+        } catch (Exception e) {
+            log.error("Erreur lors de la récupération du formulaire {}", id, e);
+            throw new ApiException("Erreur de récupération des données");
+        }
+    }
+
+    @Override
+    public List<FormulaireDto> getAllFormulaires() {
+        try {
+            return formulaireRepository.findAll().stream()
+                    .map(this::convertToDto)
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            log.error("Erreur lors de la récupération des formulaires", e);
+            throw new ApiException("Erreur de chargement des données");
+        }
+    }
+
+    @Override
+    public FormulaireDto updateFormulaire(Long id, FormulaireDto formulaireDto) {
+        try {
+            Formulaire formulaire = formulaireRepository.findById(id)
+                    .orElseThrow(() -> new ApiException("Formulaire introuvable"));
+
+            validateFormulaireData(formulaireDto);
+
+            formulaire.setTitre(formulaireDto.getTitre().trim());
+            formulaire.setEmailClient(formulaireDto.getEmailClient().trim());
+
+            // Suppression des anciens champs
+            champRepository.deleteByFormulaireId(formulaire.getId());
+            formulaire.getChamps().clear();
+
+            // Ajout des nouveaux champs
+            if (formulaireDto.getChamps() != null) {
+                for (ChampDto champDto : formulaireDto.getChamps()) {
+                    validateChampData(champDto);
+
+                    Champ champ = modelMapper.map(champDto, Champ.class);
+                    champ.setFormulaire(formulaire);
+                    champ = champRepository.save(champ);
+                    formulaire.getChamps().add(champ);
+                }
+            }
+
+            return convertToDto(formulaireRepository.save(formulaire));
+        } catch (Exception e) {
+            log.error("Erreur lors de la mise à jour du formulaire {}", id, e);
+            throw new ApiException("Échec de la mise à jour");
+        }
+    }
+
+    @Override
+    public void deleteFormulaire(Long id) {
+        try {
+            if (!formulaireRepository.existsById(id)) {
+                throw new ApiException("Formulaire introuvable");
+            }
+
+            champRepository.deleteByFormulaireId(id);
+            formulaireRepository.deleteById(id);
+        } catch (Exception e) {
+            log.error("Erreur lors de la suppression du formulaire {}", id, e);
+            throw new ApiException("Échec de la suppression");
+        }
+    }
+
+    @Override
+    public void soumettreFormulaire(SoumissionFormulaireDto soumission) {
+        try {
+            Formulaire formulaire = formulaireRepository.findById(soumission.getFormulaireId())
+                    .orElseThrow(() -> new ApiException("Formulaire introuvable"));
+
+            for (ReponseDto reponseDto : soumission.getReponses()) {
+                Champ champ = champRepository.findById(reponseDto.getChampId())
+                        .orElseThrow(() -> new ApiException("Champ introuvable"));
+
+                validateReponse(champ, reponseDto);
+
+                Reponse reponse = new Reponse();
+                reponse.setFormulaire(formulaire);
+                reponse.setChamp(champ);
+                reponse.setValeur(reponseDto.getValeur().trim());
+
+                reponseRepository.save(reponse);
+            }
+        } catch (ApiException e) {
+            throw e;
+        } catch (Exception e) {
+            log.error("Erreur lors de la soumission du formulaire", e);
+            throw new ApiException("Erreur technique lors de la soumission");
+        }
+    }
+
+    
+}
