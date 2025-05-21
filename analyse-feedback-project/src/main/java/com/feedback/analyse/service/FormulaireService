@@ -1,0 +1,17 @@
+package com.feedback.analyse.service;
+
+
+import com.feedback.analyse.dto.ClientReponsesDto;
+import com.feedback.analyse.dto.FormulaireDto;
+import com.feedback.analyse.dto.SoumissionFormulaireDto;
+import java.util.List;
+
+public interface FormulaireService {
+    FormulaireDto createFormulaire(FormulaireDto formulaireDto);
+    FormulaireDto getFormulaireById(Long id);
+    List<FormulaireDto> getAllFormulaires();
+    FormulaireDto updateFormulaire(Long id, FormulaireDto formulaireDto);
+    void deleteFormulaire(Long id);
+    
+    
+}
